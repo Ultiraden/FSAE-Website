@@ -1,0 +1,460 @@
+html.snap-team {
+    scroll-snap-type: y mandatory;
+}
+
+.team-hero {
+    text-align: center;
+}
+
+.team-viewport,
+.subteams-section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+}
+
+.team-viewport {
+    padding-top: var(--nav-clearance);
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+/* Leads: 7 per row, rows centered, add more by adding .leads-row */
+.leads-showcase {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.leads-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    overflow: visible;
+}
+
+.leads-row .lead-card {
+    flex: 0 0 calc((100% - 6 * 1rem) / 7);
+    max-width: calc((100% - 6 * 1rem) / 7);
+}
+
+.lead-card {
+    position: relative;
+    z-index: 0;
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.3s cubic-bezier(0.34, 1.15, 0.64, 1),
+        box-shadow 0.3s ease;
+}
+
+.lead-card:hover,
+.lead-card:focus-within {
+    transform: scale(1.1);
+    z-index: 2;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.lead-card img,
+.lead-card-placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lead-card-placeholder {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.lead-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    color: #fff;
+}
+
+.lead-card-name {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.lead-card-role {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.9;
+}
+
+.lead-card-linkedin {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.55rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 8px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+.lead-card-linkedin:hover {
+    background: #0a66c2;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.lead-card-linkedin:focus-visible {
+    outline: none;
+    background: #0a66c2;
+    border-color: #fff;
+    box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.5);
+}
+
+.lead-card-linkedin svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    display: block;
+}
+
+.subteams-section {
+    height: 100vh;
+    max-height: 100vh;
+    padding: 4.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: visible;
+    gap: 0.75rem;
+}
+
+.subteams-heading {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.subteams-main {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 1.25rem;
+    align-items: stretch;
+    overflow: visible;
+}
+
+.subteams-grid {
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: minmax(2.5rem, 1fr);
+    gap: 0.65rem;
+    min-height: 0;
+    align-content: stretch;
+}
+
+.subteam-card {
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    padding: 0.55rem 0.65rem;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: clamp(0.72rem, 1.05vw, 0.9rem);
+    font-weight: 600;
+    line-height: 1.25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 0;
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.subteam-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: scale(1.1);
+    z-index: 50;
+}
+
+.subteam-card:focus-visible {
+    background: rgba(255, 255, 255, 0.12);
+    transform: scale(1.1);
+    z-index: 50;
+    outline: none;
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.12),
+        0 0 0 2px rgba(15, 23, 42, 0.9),
+        0 0 0 4px rgba(0, 245, 255, 0.75);
+}
+
+/* Two-column staggered waterfall carousel */
+.waterfall-carousel {
+    position: relative;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, transparent 0, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 10%, black 90%, transparent 100%);
+}
+
+.waterfall-carousel-col {
+    overflow: hidden;
+    min-height: 0;
+    border-radius: 10px;
+}
+
+.waterfall-carousel-track {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 100%;
+    animation: team-waterfall-scroll 32s linear infinite;
+    will-change: transform;
+}
+
+.waterfall-carousel-col--right .waterfall-carousel-track {
+    animation-duration: 40s;
+    animation-direction: reverse;
+}
+
+.waterfall-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.waterfall-img--short {
+    height: clamp(100px, 14vh, 160px);
+}
+
+.waterfall-img--mid {
+    height: clamp(130px, 18vh, 210px);
+}
+
+.waterfall-img--tall {
+    height: clamp(160px, 22vh, 260px);
+}
+
+@keyframes team-waterfall-scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .waterfall-carousel-track {
+        animation: none;
+    }
+
+    .lead-card:hover,
+    .lead-card:focus-within {
+        transform: none;
+    }
+
+    .lead-card-linkedin:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .subteams-main {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 1.1fr) minmax(140px, 0.75fr);
+    }
+
+    .subteams-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .waterfall-carousel {
+        min-height: 220px;
+        max-height: 38vh;
+    }
+
+    .leads-row .lead-card {
+        flex: 0 0 calc((100% - 6 * 0.75rem) / 7);
+        max-width: calc((100% - 6 * 0.75rem) / 7);
+    }
+}
+
+@media (max-width: 600px) {
+    .leads-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .leads-row .lead-card {
+        flex: 0 0 calc(50% - 0.5rem);
+        max-width: calc(50% - 0.5rem);
+    }
+}
+
+
+.subteam-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    pointer-events: none;
+}
+
+.subteam-modal.is-open {
+    display: flex;
+    pointer-events: auto;
+}
+
+.subteam-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    opacity: 0;
+    transition: opacity 260ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.subteam-modal.is-open .subteam-modal-backdrop {
+    opacity: 1;
+}
+
+.subteam-modal-dialog {
+    position: relative;
+    max-width: 640px;
+    width: 90%;
+    max-height: min(85vh, 720px);
+    overflow-y: auto;
+    padding: 2rem;
+    padding-right: 2.75rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.96), rgba(0, 0, 0, 0.96));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.06);
+    color: #fff;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(24px) scale(0.94);
+    transition:
+        opacity 260ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.subteam-modal.is-open .subteam-modal-dialog {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.subteam-modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.subteam-modal-close:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.subteam-modal-title {
+    margin: 0 0 1rem;
+    padding-right: 2rem;
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+.subteam-modal-body {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.subteam-modal-description {
+    margin: 0;
+}
+
+.subteam-modal-software-heading {
+    margin: 1.35rem 0 0.55rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(0, 245, 255, 0.9);
+}
+
+.subteam-modal-software-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style: disc;
+}
+
+.subteam-modal-software-list li {
+    margin-bottom: 0.35rem;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.subteam-modal-software-list li:last-child {
+    margin-bottom: 0;
+}

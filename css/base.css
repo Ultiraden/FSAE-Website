@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --nav-clearance: 5rem;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    font-family: "Oswald", sans-serif;
+    background-color: #000000;
+    height: 100%;
+    scroll-snap-type: y proximity;
+}
+
+body {
+    font-family: "Oswald", sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background: radial-gradient(circle at top left, #1f2937, #000000);
+    padding-top: 0;
+    overflow-x: hidden;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.page-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+a {
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    color: #00f5ff;
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+a.button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-weight: bold;
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 10));
+    text-decoration: none;
+}
+
+a.button:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+button {
+    font-family: inherit;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    color: #00f5ff;
+    transform: scale(1.1);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    cursor: default;
+}
+

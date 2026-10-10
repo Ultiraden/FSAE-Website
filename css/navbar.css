@@ -1,0 +1,82 @@
+#site-navbar > header {
+    color: #fff;
+    padding: 0.15rem 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
+    transition: background-color 0.3s ease;
+    filter: none;
+    pointer-events: auto;
+    overflow: visible;
+}
+
+.nav-shell {
+    width: 100%;
+    padding: 0.55rem 1.35rem;
+    margin: 0 auto;
+    overflow: visible;
+    transition: max-width 0.35s ease, padding 0.35s ease, border-radius 0.35s ease,
+    box-shadow 0.35s ease, background-color 0.35s ease;
+}
+
+#site-navbar > header.is-island .nav-shell {
+    max-width: 760px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.05)
+    );
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.35),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.08);
+}
+
+#site-navbar > header.is-island {
+    background-color: transparent;
+    padding: 0.3rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+ul.nav-menu {
+    list-style: none;
+    margin: 0 0.75rem;
+    align-items: center;
+    gap: 1.05rem;
+    flex-wrap: wrap;
+    overflow: visible;
+}
+
+ul.nav-menu > li > a {
+    padding: 0.2rem 0.1rem;
+    font-size: clamp(0.95rem, 1vw, 1.05rem);
+}
+
+.logo {
+    display: block;
+    width: 44px;
+    height: auto;
+}
+

@@ -1,0 +1,242 @@
+.recruitment-page {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.recruitment-hero {
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: var(--nav-clearance) clamp(1.25rem, 4vw, 2.5rem) 3rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.recruitment-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("../assets/car-gallery/HR24-E.jpg");
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.03);
+}
+
+.recruitment-hero__bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        rgba(5, 8, 14, 0.92) 0%,
+        rgba(5, 8, 14, 0.78) 42%,
+        rgba(15, 23, 42, 0.65) 100%
+    );
+}
+
+.recruitment-hero__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.recruitment-eyebrow {
+    margin: 0 0 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(0, 245, 255, 0.95);
+}
+
+.recruitment-hero__copy h1 {
+    margin: 0 0 1.25rem;
+    font-size: clamp(2.1rem, 5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: #fff;
+}
+
+.recruitment-lede {
+    margin: 0 0 2rem;
+    font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.86);
+    max-width: 36rem;
+}
+
+.recruitment-highlights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.recruitment-highlights li {
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recruitment-highlights__label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(0, 245, 255, 0.95);
+}
+
+.recruitment-highlights__value {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.recruitment-hero__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.recruitment-discord-panel {
+    text-align: center;
+    padding: 2.25rem 1.75rem;
+    border-radius: 22px;
+    background: linear-gradient(
+        165deg,
+        rgba(255, 255, 255, 0.028),
+        rgba(255, 255, 255, 0.006)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+.recruitment-discord-panel::before {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 3px;
+    margin: 0 auto 1.35rem;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #5865f2, #00bcd4);
+}
+
+.recruitment-discord-panel h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.45rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: #fff;
+}
+
+.recruitment-discord-panel > p {
+    margin: 0 0 1.5rem;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.82);
+    text-align: left;
+}
+
+.recruitment-discord-hint {
+    margin: 1.25rem 0 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+}
+
+.discord-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 1.75rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #5865f2, #4752c4);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.88rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 36px rgba(88, 101, 242, 0.35);
+    transition: transform 0.3s cubic-bezier(0.34, 1.15, 0.64, 1), box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+.discord-pill img {
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
+.discord-pill:hover,
+.discord-pill:focus-visible {
+    transform: scale(1.06);
+    box-shadow: 0 18px 48px rgba(88, 101, 242, 0.45);
+    filter: brightness(1.05);
+    outline: none;
+    color: #fff;
+    text-decoration: none;
+}
+
+.discord-pill:focus-visible {
+    box-shadow:
+        0 18px 48px rgba(88, 101, 242, 0.45),
+        0 0 0 2px rgba(15, 23, 42, 0.95),
+        0 0 0 4px rgba(88, 101, 242, 0.55);
+}
+
+@media (max-width: 960px) {
+    .recruitment-hero__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recruitment-discord-panel > p {
+        text-align: center;
+    }
+
+    .recruitment-highlights li {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .recruitment-hero {
+        padding-top: var(--nav-clearance);
+        padding-bottom: 2.5rem;
+        align-items: flex-start;
+    }
+
+    .recruitment-discord-panel {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .discord-pill:hover,
+    .discord-pill:focus-visible {
+        transform: none;
+    }
+}

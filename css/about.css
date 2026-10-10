@@ -1,0 +1,117 @@
+
+.about-page {
+    margin: 0;
+    padding: 0 0 2.5rem;
+    box-sizing: border-box;
+}
+
+.about-hero {
+    padding: var(--nav-clearance) 1.5rem 1.75rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+
+.about-grid {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.about-card {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.about-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+}
+
+.about-card__thumb {
+    height: 130px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-card__body {
+    padding: 1.1rem 1.15rem 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-card__body h2 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #fff;
+    position: relative;
+    padding-bottom: 0.65rem;
+}
+
+.about-card__body h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 2.5rem;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(111.3deg, #4227b0 9.6%, #00bcd4 93.6%);
+}
+
+.about-card__body p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.84);
+    flex: 1;
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        max-width: 32rem;
+    }
+
+    .about-card:hover {
+        transform: none;
+    }
+
+    .about-card__thumb {
+        height: 160px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-card {
+        transition: none;
+    }
+
+    .about-card:hover {
+        transform: none;
+    }
+}
