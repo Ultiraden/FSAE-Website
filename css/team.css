@@ -1,5 +1,5 @@
 html.snap-team {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: none;
 }
 
 .team-hero {
@@ -9,7 +9,6 @@ html.snap-team {
 .team-viewport,
 .subteams-section {
     min-height: 100vh;
-    scroll-snap-align: start;
 }
 
 .team-viewport {
