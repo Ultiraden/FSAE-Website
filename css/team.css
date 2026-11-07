@@ -17,25 +17,38 @@ html.snap-team {
     overflow: visible;
 }
 
-/* Leads: 7 per row, rows centered, add more by adding .leads-row */
+/* 7 per row on desktop. Below that, cards hold the 7-across desktop size
+   (~11.5rem, the width at a 1440px screen) and the count steps
+   7 → 6 → 5 → 4 → 3 → 2. Under ~432px, the 2-up cards shrink to fit.
+   Add people by adding another .leads-row. */
 .leads-showcase {
+    --lead-gap: 1rem;
+    --lead-cols: 7;
+    --lead-card-min: 11.5rem;
+    --lead-track: min(
+        calc((100% - var(--lead-gap)) / 2),
+        max(
+            var(--lead-card-min),
+            calc((100% - (var(--lead-cols) - 1) * var(--lead-gap)) / var(--lead-cols))
+        )
+    );
     padding: 1.5rem;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--lead-gap);
 }
 
 .leads-row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    overflow: visible;
+    display: contents;
 }
 
 .leads-row .lead-card {
-    flex: 0 0 calc((100% - 6 * 1rem) / 7);
-    max-width: calc((100% - 6 * 1rem) / 7);
+    flex: 0 0 var(--lead-track);
+    width: var(--lead-track);
+    min-width: var(--lead-track);
+    max-width: var(--lead-track);
 }
 
 .lead-card {
@@ -314,23 +327,6 @@ html.snap-team {
     .waterfall-carousel {
         min-height: 220px;
         max-height: 38vh;
-    }
-
-    .leads-row .lead-card {
-        flex: 0 0 calc((100% - 6 * 0.75rem) / 7);
-        max-width: calc((100% - 6 * 0.75rem) / 7);
-    }
-}
-
-@media (max-width: 600px) {
-    .leads-row {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .leads-row .lead-card {
-        flex: 0 0 calc(50% - 0.5rem);
-        max-width: calc(50% - 0.5rem);
     }
 }
 
