@@ -138,17 +138,19 @@ h2::before {
 
 .cars-info-inner {
     min-height: 100vh;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 2rem;
     padding-top: var(--nav-clearance);
+    padding-bottom: 2.5rem;
     box-sizing: border-box;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     position: relative;
+    overflow: visible;
 }
 
 .cars-info-inner::before {
@@ -224,6 +226,8 @@ h2::before {
     justify-content: center;
     text-align: left;
     max-width: 520px;
+    width: 100%;
+    min-width: 0;
 }
 
 .cars-info-col-text h2 {
@@ -268,10 +272,17 @@ h2::before {
 
 .cars-info-buttons {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
     margin-top: 0;
+    width: 100%;
     overflow: visible;
+}
+
+@media (min-width: 1400px) {
+    .cars-info-buttons {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
 }
 
 .car-info-button {
@@ -280,16 +291,21 @@ h2::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.25rem 1rem;
+    padding: 1rem 0.75rem;
     min-height: 52px;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 8px;
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
-    font-size: clamp(0.875rem, 1vw, 1rem);
+    font-size: clamp(0.8rem, 1vw, 1rem);
     font-weight: 600;
     text-align: center;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
     transition:
         transform 0.35s cubic-bezier(0.34, 1.15, 0.64, 1),
         background 0.25s ease,
@@ -304,7 +320,7 @@ h2::before {
     background: rgba(255, 255, 255, 0.12);
     border-color: rgba(0, 245, 255, 0.55);
     color: #fff;
-    transform: scale(1.08);
+    transform: scale(1.04);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     outline: none;
 }
@@ -541,10 +557,18 @@ li.specs {
 }
 
 @media (max-width: 900px) {
+    .cars-info-inner {
+        justify-content: flex-start;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 3rem;
+    }
+
     .cars-info-row {
         flex-direction: column;
-        gap: 2rem;
-        padding: 0 1.5rem;
+        gap: 1.5rem;
+        padding: 0;
+        width: 100%;
     }
 
     .cars-info-col-text {
@@ -553,10 +577,32 @@ li.specs {
     }
 
     .cars-info-col-image img {
-        max-width: 100%;
+        max-width: min(100%, 520px);
     }
 
     .cars-info-buttons {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem;
+    }
+
+    .car-info-button {
+        padding: 0.85rem 0.5rem;
+        min-height: 48px;
+    }
+
+    .car-info-button:hover,
+    .car-info-button:focus-visible {
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width: 480px) {
+    .cars-info-buttons {
+        gap: 0.5rem;
+    }
+
+    .car-info-button {
+        padding: 0.75rem 0.4rem;
+        font-size: 0.8rem;
     }
 }
